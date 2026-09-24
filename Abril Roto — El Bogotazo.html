@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Voces de la Memoria | El Bogotazo y la Violencia Política en Colombia</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Fuente editorial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crema: "#F4F1EA",
+                        tinta: "#1A1A1A",
+                        terracota: "#8B0000",
+                        gris: "#3A3A3A",
+                        papel: "#E9E4DA"
+                    },
+                    fontFamily: {
+                        editorial: ["Libre Baskerville", "serif"],
+                        sans: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #F4F1EA;
+            color: #1A1A1A;
+        }
+
+        .grain {
+            background-image:
+                radial-gradient(rgba(26,26,26,.05) 1px, transparent 1px);
+            background-size: 5px 5px;
+        }
+
+        .editorial-line {
+            position: relative;
+        }
+
+        .editorial-line::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #8B0000;
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -37px;
+            top: 7px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #8B0000;
+            border: 3px solid #F4F1EA;
+            box-shadow: 0 0 0 2px #8B0000;
+        }
+
+        .timeline-line {
+            border-left: 2px solid #8B0000;
+        }
+
+        .archive-paper {
+            background:
+                linear-gradient(rgba(255,255,255,.72), rgba(255,255,255,.72)),
+                repeating-linear-gradient(
+                    0deg,
+                    #e4ddcf,
+                    #e4ddcf 2px,
+                    #eee9df 2px,
+                    #eee9df 4px
+                );
+        }
+
+        .image-overlay {
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,.8),
+                rgba(0,0,0,.05)
+            );
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all .7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .actor-card.active {
+            border-color: #8B0000;
+            transform: translateY(-5px);
+        }
+
+        .map-frame {
+            filter: grayscale(.25) contrast(1.05);
+        }
+
+        ::selection {
+            background: #8B0000;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="font-sans grain">
+
+<!-- ========================================================= -->
+<!-- NAVBAR -->
+<!-- ========================================================= -->
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A]/95 backdrop-blur border-b border-white/10">
+
+    <nav class="max-w-7xl mx-auto px-5 lg:px-8 h-16 flex items-center justify-between">
+
+        <a href="#portada"
+           class="text-white font-editorial text-lg tracking-wide">
+            VOCES DE LA MEMORIA
+        </a>
+
+        <div class="hidden lg:flex items-center gap-6 text-xs uppercase tracking-wider text-gray-300">
+            <a href="#contexto" class="hover:text-white transition">Contexto</a>
+            <a href="#linea-tiempo" class="hover:text-white transition">Línea del tiempo</a>
+            <a href="#actores" class="hover:text-white transition">Actores</a>
+            <a href="#territorio" class="hover:text-white transition">Territorio</a>
+            <a href="#victimas" class="hover:text-white transition">Víctimas</a>
+            <a href="#reflexion" class="hover:text-white transition">Reflexión</a>
+        </div>
+
+        <button
+            id="menuButton"
+            class="lg:hidden text-white text-xl"
+            aria-label="Abrir menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </nav>
+
+    <div id="mobileMenu"
+         class="hidden lg:hidden bg-[#1A1A1A] border-t border-white/10">
+
+        <div class="px-6 py-5 flex flex-col gap-4 text-sm uppercase tracking-wider text-gray-300">
+            <a href="#contexto">Contexto</a>
+            <a href="#linea-tiempo">Línea del tiempo</a>
+            <a href="#actores">Actores</a>
+            <a href="#territorio">Territorio</a>
+            <a href="#victimas">Víctimas</a>
+            <a href="#reflexion">Reflexión</a>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ========================================================= -->
+<!-- 1. PORTADA -->
+<!-- ========================================================= -->
+
+<section id="portada"
+         class="min-h-screen pt-16 bg-[#1A1A1A] text-white relative overflow-hidden">
+
+    <div class="absolute inset-0 opacity-30">
+
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Bogotazo.jpg?width=1600"
+            alt="Tranvía en llamas durante el Bogotazo de 1948"
+            class="w-full h-full object-cover grayscale"
+        >
+
+    </div>
+
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 min-h-[calc(100vh-4rem)] flex items-center">
+
+        <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-12 items-center w-full">
+
+            <div class="fade-up">
+
+                <div class="flex items-center gap-3 mb-6">
+
+                    <span class="w-12 h-[2px] bg-[#8B0000]"></span>
+
+                    <span class="text-xs tracking-[.3em] uppercase text-gray-300">
+                        Historia · Memoria · Reparación
+                    </span>
+
+                </div>
+
+                <h1 class="font-editorial text-4xl md:text-6xl lg:text-7xl leading-tight mb-7">
+                    Voces de la Memoria:
+                    <span class="text-[#C9A59A]">
+                        El Bogotazo y la Ruptura Histórica de Colombia
+                    </span>
+                </h1>
+
+                <p class="text-gray-300 max-w-2xl text-lg leading-relaxed mb-8">
+                    Una aproximación histórica al 9 de abril de 1948,
+                    la violencia política y los procesos posteriores de
+                    memoria, verdad, justicia y reparación a las víctimas.
+                </p>
+
+                <div class="border-l-4 border-[#8B0000] pl-6 max-w-xl mb-10">
+
+                    <p class="font-editorial italic text-xl text-gray-200">
+                        "El silencio también puede convertirse en una forma
+                        de recordar a quienes ya no pueden contar su historia."
+                    </p>
+
+                    <p class="text-xs text-gray-500 mt-3">
+                        Reflexión introductoria del estudiante
+                    </p>
+
+                </div>
+
+                <!-- Datos estudiante -->
+
+                <div class="grid sm:grid-cols-3 gap-3 max-w-2xl">
+
+                    <div class="border border-white/15 p-4 bg-white/5">
+                        <span class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">
+                            Estudiante
+                        </span>
+                        <strong class="text-sm">
+                            Santiago Giraldo Niño
+                        </strong>
+                    </div>
+
+                    <div class="border border-white/15 p-4 bg-white/5">
+                        <span class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">
+                            Grado
+                        </span>
+                        <strong class="text-sm">
+                            11A
+                        </strong>
+                    </div>
+
+                    <div class="border border-white/15 p-4 bg-white/5">
+                        <span class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">
+                            Asignatura
+                        </span>
+                        <strong class="text-sm">
+                            Ciencias Sociales
+                        </strong>
+                    </div>
+                    <div class="border border-white/15 p-4 bg-white/5">
+                        <span class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">
+                          Colegio
+                        </span>
+                        <strong class="text-sm">
+                          Celestin Freinet
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO IMAGE -->
+
+            <figure class="relative hidden md:block fade-up">
+
+                <div class="border border-white/20 p-3 bg-white/5 backdrop-blur">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Bogotazo.jpg?width=1200"
+                        alt="Tranvía incendiado frente al Capitolio Nacional durante el Bogotazo"
+                        class="w-full aspect-[4/3] object-cover grayscale"
+                    >
+
+                    <figcaption class="p-4">
+
+                        <div class="flex items-center gap-2 text-[#C9A59A] text-xs uppercase tracking-wider mb-2">
+
+                            <i class="fa-solid fa-camera"></i>
+
+                            Documento visual
+
+                        </div>
+
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Tranvía en llamas frente al Capitolio Nacional
+                            durante los disturbios del 9 de abril de 1948.
+                        </p>
+
+                        <p class="text-xs text-gray-500 mt-2">
+                            Fotografía histórica · Wikimedia Commons /
+                            Daniel Pradilla Holguín.
+                        </p>
+
+                    </figcaption>
+
+                </div>
+
+            </figure>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 2. CONTEXTO HISTÓRICO -->
+<!-- ========================================================= -->
+
+<section id="contexto" class="py-24 bg-crema">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="max-w-3xl mb-14 fade-up">
+
+            <span class="text-xs uppercase tracking-[.3em] text-terracota font-bold">
+                02 · Contexto histórico
+            </span>
+
+            <h2 class="font-editorial text-4xl md:text-5xl mt-4 mb-6">
+                Una violencia que no comenzó el 9 de abril
+            </h2>
+
+            <p class="text-gray-700 text-lg leading-relaxed">
+                El Bogotazo fue un momento decisivo, pero no apareció de
+                manera aislada. Durante la década de 1940 existían fuertes
+                tensiones políticas entre liberales y conservadores, además
+                de conflictos sociales y rurales. El asesinato de Jorge
+                Eliécer Gaitán intensificó esas tensiones y contribuyó a la
+                expansión de una violencia política que afectó distintas
+                regiones del país.
+            </p>
+
+        </div>
+
+
+        <div class="grid lg:grid-cols-3 gap-6 mb-16">
+
+            <!-- TARJETA 1 -->
+
+            <article class="bg-white border border-black/10 p-7 fade-up">
+
+                <div class="w-12 h-12 flex items-center justify-center
+                            bg-[#1A1A1A] text-white mb-6">
+
+                    <i class="fa-solid fa-landmark"></i>
+
+                </div>
+
+                <span class="text-xs uppercase tracking-widest text-terracota font-bold">
+                    1940–1946
+                </span>
+
+                <h3 class="font-editorial text-2xl mt-3 mb-4">
+                    Antecedentes
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Colombia atravesaba una fuerte disputa política entre
+                    los partidos Liberal y Conservador. Las tensiones
+                    electorales se mezclaban con conflictos agrarios,
+                    desigualdades sociales y enfrentamientos locales.
+                </p>
+
+            </article>
+
+
+            <!-- TARJETA 2 -->
+
+            <article class="bg-[#1A1A1A] text-white p-7 fade-up">
+
+                <div class="w-12 h-12 flex items-center justify-center
+                            bg-[#8B0000] text-white mb-6">
+
+                    <i class="fa-solid fa-burst"></i>
+
+                </div>
+
+                <span class="text-xs uppercase tracking-widest text-[#C9A59A] font-bold">
+                    9 de abril de 1948
+                </span>
+
+                <h3 class="font-editorial text-2xl mt-3 mb-4">
+                    El Bogotazo
+                </h3>
+
+                <p class="text-gray-300 leading-relaxed">
+                    El asesinato de Jorge Eliécer Gaitán en el centro de
+                    Bogotá provocó una insurrección y una ola de disturbios.
+                    Parte importante del centro urbano sufrió incendios,
+                    saqueos y destrucción.
+                </p>
+
+            </article>
+
+
+            <!-- TARJETA 3 -->
+
+            <article class="bg-white border border-black/10 p-7 fade-up">
+
+                <div class="w-12 h-12 flex items-center justify-center
+                            bg-[#8B0000] text-white mb-6">
+
+                    <i class="fa-solid fa-mountain-sun"></i>
+
+                </div>
+
+                <span class="text-xs uppercase tracking-widest text-terracota font-bold">
+                    1948–1953
+                </span>
+
+                <h3 class="font-editorial text-2xl mt-3 mb-4">
+                    Escalada rural
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    La confrontación política se extendió y adquirió
+                    expresiones armadas en diferentes territorios. La
+                    violencia rural afectó comunidades, familias y
+                    territorios, profundizando desplazamientos y
+                    fracturas sociales.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <!-- DOCUMENTO HISTÓRICO -->
+
+        <div class="grid lg:grid-cols-2 gap-10 items-center fade-up">
+
+            <figure class="bg-[#1A1A1A] p-3">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Jorge-eliecer-gait%C3%A1n.jpg?width=1200"
+                        alt="Jorge Eliécer Gaitán durante la Marcha del Silencio de 1948"
+                        class="w-full h-[420px] object-cover grayscale"
+                    >
+
+                    <div class="absolute inset-x-0 bottom-0 p-5 image-overlay">
+
+                        <p class="text-white text-sm">
+                            Imagen histórica asociada a la movilización
+                            gaitanista y la Marcha del Silencio.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <figcaption class="text-gray-400 text-xs p-3">
+                    Wikimedia Commons · imagen de 1948, dominio público.
+                </figcaption>
+
+            </figure>
+
+
+            <!-- ARCHIVO -->
+
+            <div>
+
+                <span class="text-xs uppercase tracking-[.3em] text-terracota font-bold">
+                    Archivo histórico
+                </span>
+
+                <h3 class="font-editorial text-3xl mt-3 mb-5">
+                    La prensa como testigo de la época
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Los periódicos permiten reconstruir cómo una sociedad
+                    interpretó los acontecimientos mientras ocurrían.
+                    Para una investigación escolar, es importante comparar
+                    el lenguaje periodístico de 1948 con los análisis
+                    posteriores realizados por instituciones de memoria.
+                </p>
+
+                <div class="archive-paper border border-black/10 p-6 shadow-lg">
+
+                    <div class="flex justify-between border-b border-black/20 pb-3 mb-4">
+
+                        <span class="font-editorial font-bold">
+                            ARCHIVO · 1948
+                        </span>
+
+                        <span class="text-xs">
+                            DOCUMENTO HISTÓRICO
+                        </span>
+
+                    </div>
+
+                    <h4 class="font-editorial text-xl">
+                        Prensa colombiana y el 9 de abril
+                    </h4>
+
+                    <p class="text-sm text-gray-600 mt-3">
+                        Espacio preparado para insertar la primera página
+                        digitalizada de un periódico de abril de 1948.
+                    </p>
+
+                    <button
+                        onclick="openDocument('prensa')"
+                        class="mt-5 px-5 py-3 bg-[#1A1A1A] text-white text-xs uppercase tracking-wider hover:bg-[#8B0000] transition">
+
+                        <i class="fa-solid fa-file-pdf mr-2"></i>
+                        Abrir ficha documental
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 3. LÍNEA DEL TIEMPO -->
+<!-- ========================================================= -->
+
+<section id="linea-tiempo" class="py-24 bg-[#1A1A1A] text-white">
+
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center mb-16 fade-up">
+
+            <span class="text-xs uppercase tracking-[.3em] text-[#C9A59A]">
+                03 · Línea del tiempo
+            </span>
+
+            <h2 class="font-editorial text-4xl md:text-5xl mt-4">
+                De la tensión política a la violencia
+            </h2>
+
+            <p class="text-gray-400 max-w-2xl mx-auto mt-5">
+                Cinco momentos para comprender el proceso histórico
+                entre la segunda mitad de los años cuarenta y el
+                reordenamiento político de comienzos de los cincuenta.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-line ml-5 pl-10 space-y-14">
+
+            <!-- 1946 -->
+
+            <article class="timeline-item fade-up">
+
+                <div class="flex items-start gap-5">
+
+                    <div class="text-[#C9A59A] text-2xl">
+                        <i class="fa-solid fa-vote-yea"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="text-[#C9A59A] font-bold text-sm">
+                            1946
+                        </span>
+
+                        <h3 class="font-editorial text-2xl mt-1">
+                            Mariano Ospina Pérez llega a la presidencia
+                        </h3>
+
+                        <p class="text-gray-400 mt-3 leading-relaxed">
+                            La división del Partido Liberal facilitó el
+                            triunfo conservador. La competencia política
+                            quedó marcada por fuertes tensiones entre
+                            las dos colectividades.
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            <strong class="text-gray-300">Importancia:</strong>
+                            constituye uno de los antecedentes inmediatos
+                            del ambiente político de 1948.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 1948 Marcha -->
+
+            <article class="timeline-item fade-up">
+
+                <div class="flex items-start gap-5">
+
+                    <div class="text-[#C9A59A] text-2xl">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="text-[#C9A59A] font-bold text-sm">
+                            7 de febrero de 1948
+                        </span>
+
+                        <h3 class="font-editorial text-2xl mt-1">
+                            Marcha del Silencio
+                        </h3>
+
+                        <p class="text-gray-400 mt-3 leading-relaxed">
+                            Gaitán convocó una movilización multitudinaria
+                            en Bogotá para denunciar la violencia política
+                            que afectaba diferentes regiones.
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            <strong class="text-gray-300">Importancia:</strong>
+                            mostró la capacidad de movilización pacífica
+                            del movimiento gaitanista.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 9 abril -->
+
+            <article class="timeline-item fade-up">
+
+                <div class="flex items-start gap-5">
+
+                    <div class="text-[#C9A59A] text-2xl">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="text-[#C9A59A] font-bold text-sm">
+                            9 de abril de 1948
+                        </span>
+
+                        <h3 class="font-editorial text-2xl mt-1">
+                            Asesinato de Jorge Eliécer Gaitán
+                        </h3>
+
+                        <p class="text-gray-400 mt-3 leading-relaxed">
+                            Gaitán fue asesinado en el centro de Bogotá.
+                            La reacción popular produjo disturbios,
+                            incendios, saqueos y enfrentamientos armados.
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            <strong class="text-gray-300">Importancia:</strong>
+                            el Bogotazo se convirtió en un punto de
+                            radicalización de la violencia política.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 1949 -->
+
+            <article class="timeline-item fade-up">
+
+                <div class="flex items-start gap-5">
+
+                    <div class="text-[#C9A59A] text-2xl">
+                        <i class="fa-solid fa-people-arrows"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="text-[#C9A59A] font-bold text-sm">
+                            1949
+                        </span>
+
+                        <h3 class="font-editorial text-2xl mt-1">
+                            Profundización de la confrontación política
+                        </h3>
+
+                        <p class="text-gray-400 mt-3 leading-relaxed">
+                            La violencia continuó extendiéndose por
+                            diferentes territorios y adquirió formas
+                            rurales y partidistas.
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            <strong class="text-gray-300">Importancia:</strong>
+                            el conflicto dejó de ser únicamente una crisis
+                            urbana y se convirtió en un problema nacional.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 1953 -->
+
+            <article class="timeline-item fade-up">
+
+                <div class="flex items-start gap-5">
+
+                    <div class="text-[#C9A59A] text-2xl">
+                        <i class="fa-solid fa-flag"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="text-[#C9A59A] font-bold text-sm">
+                            1953
+                        </span>
+
+                        <h3 class="font-editorial text-2xl mt-1">
+                            Golpe de Estado y gobierno de Gustavo Rojas Pinilla
+                        </h3>
+
+                        <p class="text-gray-400 mt-3 leading-relaxed">
+                            El general Gustavo Rojas Pinilla asumió el
+                            poder mediante un golpe de Estado. Posteriormente
+                            se produjeron procesos de desmovilización y
+                            amnistía para algunos grupos armados.
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            <strong class="text-gray-300">Importancia:</strong>
+                            representa un nuevo momento político dentro del
+                            período de La Violencia.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 4. ACTORES DEL CONFLICTO -->
+<!-- ========================================================= -->
+
+<section id="actores" class="py-24 bg-papel">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="max-w-3xl mb-14 fade-up">
+
+            <span class="text-xs uppercase tracking-[.3em] text-terracota font-bold">
+                04 · Actores
+            </span>
+
+            <h2 class="font-editorial text-4xl md:text-5xl mt-4 mb-5">
+                Una sociedad atravesada por múltiples actores
+            </h2>
+
+            <p class="text-gray-700 leading-relaxed">
+                El conflicto no puede explicarse solamente como un
+                enfrentamiento entre dos partidos. Participaron dirigentes,
+                instituciones, fuerzas de seguridad, organizaciones políticas
+                y sectores populares con experiencias y responsabilidades
+                diferentes.
+            </p>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+
+            <!-- ACTOR 1 -->
+
+            <article
+                class="actor-card bg-white border border-black/10 p-7 transition duration-300 cursor-pointer fade-up"
+                onclick="showActor('gaitan')">
+
+                <div class="flex items-start justify-between">
+
+                    <div class="w-14 h-14 bg-[#1A1A1A] text-white
+                                flex items-center justify-center text-xl">
+
+                        <i class="fa-solid fa-microphone-lines"></i>
+
+                    </div>
+
+                    <span class="text-xs text-gray-400">
+                        ACTOR 01
+                    </span>
+
+                </div>
+
+                <h3 class="font-editorial text-2xl mt-6 mb-3">
+                    Jorge Eliécer Gaitán y el gaitanismo
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Movimiento político de masas asociado a las demandas
+                    de sectores populares y a la denuncia de la violencia
+                    política.
+                </p>
+
+                <div id="gaitan" class="actor-info hidden mt-5 border-t pt-5">
+
+                    <p class="text-sm text-gray-600">
+                        <strong>Concepto:</strong>
+                        movilización política, denuncia de la violencia,
+                        liderazgo popular y oposición a estructuras
+                        tradicionales de poder.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- ACTOR 2 -->
+
+            <article
+                class="actor-card bg-white border border-black/10 p-7 transition duration-300 cursor-pointer fade-up"
+                onclick="showActor('gobierno')">
+
+                <div class="flex items-start justify-between">
+
+                    <div class="w-14 h-14 bg-[#8B0000] text-white
+                                flex items-center justify-center text-xl">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+                    <span class="text-xs text-gray-400">
+                        ACTOR 02
+                    </span>
+
+                </div>
+
+                <h3 class="font-editorial text-2xl mt-6 mb-3">
+                    Gobierno Nacional y Fuerza Pública
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    El Estado enfrentó la crisis mediante las instituciones
+                    gubernamentales y las fuerzas encargadas de restablecer
+                    el orden público.
+                </p>
+
+                <div id="gobierno" class="actor-info hidden mt-5 border-t pt-5">
+
+                    <p class="text-sm text-gray-600">
+                        <strong>Concepto:</strong>
+                        autoridad estatal, mantenimiento del orden,
+                        respuesta institucional y disputa sobre la
+                        responsabilidad política frente a la violencia.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- ACTOR 3 -->
+
+            <article
+                class="actor-card bg-white border border-black/10 p-7 transition duration-300 cursor-pointer fade-up"
+                onclick="showActor('pueblo')">
+
+                <div class="flex items-start justify-between">
+
+                    <div class="w-14 h-14 bg-[#1A1A1A] text-white
+                                flex items-center justify-center text-xl">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <span class="text-xs text-gray-400">
+                        ACTOR 03
+                    </span>
+
+                </div>
+
+                <h3 class="font-editorial text-2xl mt-6 mb-3">
+                    Sectores populares y multitud movilizada
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Miles de personas participaron en las protestas,
+                    movilizaciones y acciones que se desarrollaron durante
+                    los disturbios.
+                </p>
+
+                <div id="pueblo" class="actor-info hidden mt-5 border-t pt-5">
+
+                    <p class="text-sm text-gray-600">
+                        <strong>Concepto:</strong>
+                        indignación social, movilización urbana,
+                        participación política y experiencias diferenciadas
+                        dentro de la multitud.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- ACTOR 4 -->
+
+            <article
+                class="actor-card bg-white border border-black/10 p-7 transition duration-300 cursor-pointer fade-up"
+                onclick="showActor('partidos')">
+
+                <div class="flex items-start justify-between">
+
+                    <div class="w-14 h-14 bg-[#8B0000] text-white
+                                flex items-center justify-center text-xl">
+
+                        <i class="fa-solid fa-landmark-flag"></i>
+
+                    </div>
+
+                    <span class="text-xs text-gray-400">
+                        ACTOR 04
+                    </span>
+
+                </div>
+
+                <h3 class="font-editorial text-2xl mt-6 mb-3">
+                    Partidos Liberal y Conservador
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Las dos grandes colectividades tradicionales organizaron
+                    buena parte de la competencia política colombiana y
+                    estuvieron relacionadas con las dinámicas de La Violencia.
+                </p>
+
+                <div id="partidos" class="actor-info hidden mt-5 border-t pt-5">
+
+                    <p class="text-sm text-gray-600">
+                        <strong>Concepto:</strong>
+                        competencia electoral, identidades partidistas,
+                        redes políticas territoriales y confrontación.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- MAPA CONCEPTUAL -->
+
+        <div class="mt-14 bg-[#1A1A1A] text-white p-8 md:p-12 fade-up">
+
+            <div class="text-center mb-10">
+
+                <span class="text-xs uppercase tracking-[.3em] text-[#C9A59A]">
+                    Mapa conceptual
+                </span>
+
+                <h3 class="font-editorial text-3xl mt-3">
+                    Relaciones entre los actores
+                </h3>
+
+            </div>
+
+            <div class="grid md:grid-cols-5 gap-4 items-center text-center">
+
+                <div class="border border-white/20 p-5">
+                    <i class="fa-solid fa-user-tie text-2xl text-[#C9A59A]"></i>
+                    <p class="mt-3 text-sm">Gaitán</p>
+                </div>
+
+                <div class="hidden md:block text-[#8B0000] text-2xl">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+
+                <div class="border border-[#8B0000] p-5 bg-[#8B0000]/20">
+
+                    <i class="fa-solid fa-city text-2xl"></i>
+
+                    <p class="mt-3 font-bold">
+                        Crisis del 9 de abril
+                    </p>
+
+                </div>
+
+                <div class="hidden md:block text-[#8B0000] text-2xl">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+
+                <div class="border border-white/20 p-5">
+
+                    <i class="fa-solid fa-people-group text-2xl text-[#C9A59A]"></i>
+
+                    <p class="mt-3 text-sm">
+                        Sociedad y Estado
+                    </p>
+
+                </div>
+
+            </div>
+
+            <p class="text-gray-400 text-sm text-center max-w-2xl mx-auto mt-8">
+                El esquema representa relaciones históricas generales y
+                no pretende atribuir la misma responsabilidad a todos
+                los actores.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 5. TERRITORIO -->
+<!-- ========================================================= -->
+
+<section id="territorio" class="py-24 bg-crema">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="max-w-3xl mb-14 fade-up">
+
+            <span class="text-xs uppercase tracking-[.3em] text-terracota font-bold">
+                05 · Territorio
+            </span>
+
+            <h2 class="font-editorial text-4xl md:text-5xl mt-4 mb-5">
+                El centro histórico de Bogotá
+            </h2>
+
+            <p class="text-gray-700 leading-relaxed">
+                La Carrera Séptima, la Plaza de Bolívar y el entorno
+                institucional del centro fueron escenarios fundamentales
+                durante el 9 de abril. La destrucción transformó físicamente
+                algunas zonas y posteriormente influyó en proyectos de
+                reconstrucción y modernización urbana.
+            </p>
+
+        </div>
+
+
+        <!-- MAPA -->
+
+        <div class="bg-white border border-black/10 p-3 mb-12 fade-up">
+
+            <div class="relative">
+
+                <iframe
+                    class="w-full h-[430px] map-frame border-0"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0805%2C4.5920%2C-74.0660%2C4.6120&layer=mapnik&marker=4.5981%2C-74.0758"
+                    title="Mapa del Centro Histórico de Bogotá"
+                    loading="lazy">
+                </iframe>
+
+                <div class="absolute top-4 left-4 bg-[#1A1A1A] text-white
+                            px-5 py-4 shadow-lg">
+
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        Territorio de estudio
+                    </span>
+
+                    <p class="font-editorial mt-1">
+                        Centro Histórico · Bogotá
+                    </p>
+
+                </div>
+
+            </div>
+
+            <p class="text-xs text-gray-500 p-3">
+                Mapa base: OpenStreetMap. Punto de referencia aproximado
+                del centro histórico de Bogotá.
+            </p>
+
+        </div>
+
+
+        <!-- GALERÍA -->
+
+        <div class="mb-14">
+
+            <div class="flex items-end justify-between mb-7">
+
+                <div>
+
+                    <span class="text-xs uppercase tracking-[.3em] text-terracota font-bold">
+                        Archivo visual
+                    </span>
+
+                    <h3 class="font-editorial text-3xl mt-3">
+                        El territorio antes y después
+                    </h3>
+
+                </div>
+
+                <span class="hidden md:block text-xs text-gray-500">
+                    Haga clic para ampliar
+                </span>
+
+            </div>
+
+
+            <div class="grid md:grid-cols-3 gap-5">
+
+                <!-- FOTO 1 -->
+
+                <figure
+                    class="group cursor-pointer bg-[#1A1A1A] p-2"
+                    onclick="openGallery(this.querySelector('img').src, this.querySelector('figcaption').innerText)">
+
+                    <div class="overflow-hidden">
+
+                        <img
+                            src="https://commons.wikimedia.org/wiki/Special:FilePath/Bogotazo.jpg?width=1200"
+                            alt="Tranvía incendiado durante el Bogotazo"
+                            class="w-full h-72 object-cover grayscale group-hover:scale-105 transition duration-500"
+                        >
+
+                    </div>
+
+                    <figcaption class="text-gray-300 text-xs p-3">
+                        1948 · Tranvía incendiado frente al Capitolio Nacional.
+                        Imagen conservada en Wikimedia Commons.
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- FOTO 2 -->
+
+                <figure
+                    class="group cursor-pointer bg-[#1A1A1A] p-2"
+                    onclick="openGallery(this.querySelector('img').src, this.querySelector('figcaption').innerText)">
+
+                    <div class="overflow-hidden">
+
+                        <img
+                            src="https://bogota.gov.co/sites/default/files/2020-04/bogotazo-plaza-san-victorino.jpg"
+                            alt="Ruinas de Bogotá después del Bogotazo"
+                            onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Bogotazo.jpg?width=1200'"
+                            class="w-full h-72 object-cover grayscale group-hover:scale-105 transition duration-500"
+                        >
+
+                    </div>
+
+                    <figcaption class="text-gray-300 text-xs p-3">
+                        Después del 9 de abril · destrucción de edificaciones
+                        y espacios comerciales del centro de Bogotá.
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- FOTO 3 -->
+
+                <figure
+                    class="group cursor-pointer bg-[#1A1A1A] p-2"
+                    onclick="openGallery(this.querySelector('img').src, this.querySelector('figcaption').innerText)">
+
+                    <div class="overflow-hidden">
+
+                        <img
+                            src="https://commons.wikimedia.org/wiki/Special:FilePath/Jorge_Eli%C3%A9cer_Gait%C3%A1n_(1936).jpg?width=900"
+                            alt="Retrato histórico de Jorge Eliécer Gaitán"
+                            class="w-full h-72 object-cover grayscale group-hover:scale-105 transition duration-500"
+                        >
+
+                    </div>
+
+                    <figcaption class="text-gray-300 text-xs p-3">
+                        Jorge Eliécer Gaitán · retrato histórico de 1936,
+                        utilizado para contextualizar al líder político.
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </div>
+
+
+        <!-- FICHAS TERRITORIALES -->
+
+        <div class="grid md:grid-cols-3 gap-5">
+
+            <article class="bg-white border border-black/10 p-7 fade-up">
+
+                <i class="fa-solid fa-person text-terracota text-2xl"></i>
+
+                <h3 class="font-editorial text-xl mt-4 mb-3">
+                    Población afectada
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Habitantes, trabajadores, comerciantes y transeúntes
+                    del centro urbano quedaron expuestos a la violencia,
+                    el saqueo, los incendios y la interrupción de la
+                    actividad cotidiana.
+                </p>
+
+            </article>
+
+
+            <article class="bg-white border border-black/10 p-7 fade-up">
+
+                <i class="fa-solid fa-building-circle-exclamation text-terracota text-2xl"></i>
+
+                <h3 class="font-editorial text-xl mt-4 mb-3">
+                    Consecuencias físicas
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Numerosos edificios, comercios, tranvías y espacios
+                    urbanos fueron destruidos o afectados durante los
+                    disturbios.
+                </p>
+
+            </article>
+
+
+            <article class="bg-white border border-black/10 p-7 fade-up">
+
+                <i class="fa-solid fa-city text-terracota text-2xl"></i>
+
+                <h3 class="font-editorial text-xl mt-4 mb-3">
+                    Transformación urbana
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    La reconstrucción posterior se relacionó con cambios
+                    en las vías, el comercio, la arquitectura y la expansión
+                    urbana de Bogotá durante las décadas siguientes.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <div class="mt-10 editorial-line pl-7">
+
+            <p class="text-gray-600 text-sm leading-relaxed">
+                El impacto urbano no terminó cuando cesaron los disturbios.
+                La administración de Bogotá impulsó posteriormente medidas
+                de reconstrucción y modificación del espacio urbano. El
+                Decreto 1370 de abril de 1948, por ejemplo, estuvo relacionado
+                con la ocupación y reorganización de inmuebles en el centro.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 6. VÍCTIMAS, MEMORIA Y REPARACIÓN -->
+<!-- ========================================================= -->
+
+<section id="victimas" class="py-24 bg-[#1A1A1A] text-white">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="max-w-3xl mb-14 fade-up">
+
+            <span class="text-xs uppercase tracking-[.3em] text-[#C9A59A]">
+                06 · Víctimas, memoria y reparación
+            </span>
+
+            <h2 class="font-editorial text-4xl md:text-5xl mt-4 mb-5">
+                Recordar también es reconocer el daño
+            </h2>
+
+            <p class="text-gray-400 leading-relaxed">
+                Estudiar el conflicto no consiste únicamente en identificar
+                fechas y protagonistas. También implica reconocer las
+                consecuencias humanas y comprender cómo las instituciones
+                actuales buscan responder a las víctimas mediante verdad,
+                justicia, reparación y garantías de no repetición.
+            </p>
+
+        </div>
+
+
+        <!-- TESTIMONIO / CASO -->
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-16">
+
+            <article class="border border-white/10 bg-white/5 p-8 fade-up">
+
+                <div class="flex items-center gap-3 mb-6">
+
+                    <div class="w-11 h-11 bg-[#8B0000] flex items-center justify-center">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="text-xs uppercase tracking-wider text-gray-500">
+                            Memoria histórica
+                        </span>
+
+                        <h3 class="font-editorial text-xl">
+                            Las voces detrás de las cifras
+                        </h3>
+
+                    </div>
+
+                </div>
+
+                <p class="text-gray-300 leading-relaxed">
+                    Los informes de memoria histórica muestran que la
+                    violencia política no puede entenderse únicamente
+                    mediante estadísticas. Las experiencias de las
+                    personas afectadas incluyen pérdidas familiares,
+                    destrucción de proyectos de vida, desplazamiento,
+                    miedo y ruptura de relaciones comunitarias.
+                </p>
+
+                <div class="border-l-2 border-[#8B0000] pl-5 mt-7">
+
+                    <p class="font-editorial italic text-gray-300">
+                        "La memoria permite que las víctimas sean reconocidas
+                        como sujetos de derechos y no solamente como cifras
+                        de un conflicto."
+                    </p>
+
+                    <p class="text-xs text-gray-500 mt-3">
+                        Síntesis pedagógica basada en informes institucionales
+                        de memoria histórica.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- REFLEXIÓN DEL ESTUDIANTE -->
+
+            <article class="bg-crema text-[#1A1A1A] p-8 fade-up">
+
+                <span class="text-xs uppercase tracking-widest text-terracota font-bold">
+                    Reflexión del estudiante
+                </span>
+
+                <h3 class="font-editorial text-2xl mt-4 mb-5">
+                    ¿Qué significa perder una vida?
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed">
+                    Cuando estudiamos el Bogotazo podemos caer en la idea
+                    de que todo se resume a una fecha. Sin embargo, detrás
+                    del 9 de abril existieron personas con familias,
+                    trabajos, proyectos y expectativas de futuro. La pérdida
+                    de una vida afecta también a quienes permanecen y puede
+                    modificar la historia de una comunidad.
+                </p>
+
+                <p class="text-gray-700 leading-relaxed mt-4">
+                    Por eso considero que estudiar las víctimas es una
+                    manera de comprender que los conflictos políticos no
+                    son solamente discusiones entre dirigentes. Sus
+                    consecuencias llegan a las calles, los hogares y los
+                    territorios.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <!-- ARCHIVO DOCUMENTAL -->
+
+        <div class="mb-16">
+
+            <div class="flex items-center gap-3 mb-8">
+
+                <i class="fa-solid fa-box-archive text-[#C9A59A] text-2xl"></i>
+
+                <div>
+
+                    <span class="text-xs uppercase tracking-widest text-gray-500">
+                        Archivo documental
+                    </span>
+
+                    <h3 class="font-editorial text-3xl">
+                        Fuentes para investigar
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="grid lg:grid-cols-3 gap-5">
+
+
+                <!-- DOCUMENTO CNMH -->
+
+                <article class="archive-paper text-[#1A1A1A] p-6 border border-white/10">
+
+                    <div class="flex justify-between mb-5">
+
+                        <i class="fa-solid fa-file-lines text-2xl text-[#8B0000]"></i>
+
+                        <span class="text-[10px] uppercase tracking-widest">
+                            Informe
+                        </span>
+
+                    </div>
+
+                    <h4 class="font-editorial text-xl">
+                        ¡Basta Ya! Colombia: Memorias de guerra y dignidad
+                    </h4>
+
+                    <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+                        Informe general del Centro Nacional de Memoria
+                        Histórica sobre el conflicto armado colombiano.
+                    </p>
+
+                    <a
+                        href="https://centrodememoriahistorica.gov.co/descargas/informes2013/bastaYa/basta-ya-memorias-guerra-dignidad-12-sept.pdf"
+                        target="_blank"
+                        class="inline-block mt-5 text-xs uppercase tracking-wider font-bold text-[#8B0000]">
+
+                        Consultar PDF
+                        <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+
+                    </a>
+
+                </article>
+
+
+                <!-- DOCUMENTO UNIDAD -->
+
+                <article class="archive-paper text-[#1A1A1A] p-6 border border-white/10">
+
+                    <div class="flex justify-between mb-5">
+
+                        <i class="fa-solid fa-scale-balanced text-2xl text-[#8B0000]"></i>
+
+                        <span class="text-[10px] uppercase tracking-widest">
+                            Reparación
+                        </span>
+
+                    </div>
+
+                    <h4 class="font-editorial text-xl">
+                        Reparación integral individual
+                    </h4>
+
+                    <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+                        Información oficial sobre las medidas de reparación
+                        y el acompañamiento a las víctimas.
+                    </p>
+
+                    <a
+                        href="https://www.unidadvictimas.gov.co/reparacion-integral-individual/"
+                        target="_blank"
+                        class="inline-block mt-5 text-xs uppercase tracking-wider font-bold text-[#8B0000]">
+
+                        Consultar fuente
+                        <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+
+                    </a>
+
+                </article>
+
+
+                <!-- DOCUMENTO JEP -->
+
+                <article class="archive-paper text-[#1A1A1A] p-6 border border-white/10">
+
+                    <div class="flex justify-between mb-5">
+
+                        <i class="fa-solid fa-gavel text-2xl text-[#8B0000]"></i>
+
+                        <span class="text-[10px] uppercase tracking-widest">
+                            Justicia restaurativa
+                        </span>
+
+                    </div>
+
+                    <h4 class="font-editorial text-xl">
+                        Manual de Justicia Transicional Restaurativa
+                    </h4>
+
+                    <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+                        Material pedagógico de la JEP sobre justicia
+                        restaurativa, víctimas y reparación.
+                    </p>
+
+                    <a
+                        href="https://www.jep.gov.co/DocumentosJEPWP/Manual%20JTR.pdf"
+                        target="_blank"
+                        class="inline-block mt-5 text-xs uppercase tracking-wider font-bold text-[#8B0000]">
+
+                        Consultar PDF
+                        <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+
+        <!-- REPARACIÓN -->
+
+        <div class="bg-white text-[#1A1A1A] p-8 md:p-12 fade-up">
+
+            <div class="max-w-3xl mb-10">
+
+                <span class="text-xs uppercase tracking-[.3em] text-terracota font-bold">
+                    Procesos de reparación
+                </span>
+
+                <h3 class="font-editorial text-3xl md:text-4xl mt-3">
+                    La reparación es más que una indemnización
+                </h3>
+
+                <p class="text-gray-600 mt-4 leading-relaxed">
+                    La Unidad para las Víctimas establece cinco medidas
+                    principales de reparación integral. No todas las
+                    personas acceden necesariamente a todas las medidas:
+                    depende del hecho victimizante, el daño sufrido y las
+                    condiciones de cada caso.
+                </p>
+
+            </div>
+
+
+            <div class="grid md:grid-cols-5 gap-4">
+
+                <div class="border border-black/10 p-5">
+
+                    <i class="fa-solid fa-house text-terracota"></i>
+
+                    <h4 class="font-bold mt-4">
+                        Restitución
+                    </h4>
+
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Busca restablecer derechos y condiciones afectados.
+                    </p>
+
+                </div>
+
+
+                <div class="border border-black/10 p-5">
+
+                    <i class="fa-solid fa-hand-holding-dollar text-terracota"></i>
+
+                    <h4 class="font-bold mt-4">
+                        Indemnización
+                    </h4>
+
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Compensación económica según el tipo de victimización.
+                    </p>
+
+                </div>
+
+
+                <div class="border border-black/10 p-5">
+
+                    <i class="fa-solid fa-heart-pulse text-terracota"></i>
+
+                    <h4 class="font-bold mt-4">
+                        Rehabilitación
+                    </h4>
+
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Atención física, psicológica, jurídica y social.
+                    </p>
+
+                </div>
+
+
+                <div class="border border-black/10 p-5">
+
+                    <i class="fa-solid fa-monument text-terracota"></i>
+
+                    <h4 class="font-bold mt-4">
+                        Satisfacción
+                    </h4>
+
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Reconocimiento, dignificación y memoria de las víctimas.
+                    </p>
+
+                </div>
+
+
+                <div class="border border-black/10 p-5">
+
+                    <i class="fa-solid fa-shield-heart text-terracota"></i>
+
+                    <h4 class="font-bold mt-4">
+                        No repetición
+                    </h4>
+
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Medidas destinadas a evitar nuevas violaciones.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="mt-10 border-t border-black/10 pt-7">
+
+                <div class="flex gap-4 items-start">
+
+                    <i class="fa-solid fa-circle-info text-terracota mt-1"></i>
+
+                    <p class="text-sm text-gray-600 leading-relaxed">
+
+                        <strong>Importante:</strong>
+                        la JEP no reemplaza la reparación administrativa
+                        de la Unidad para las Víctimas. La JEP trabaja
+                        desde la justicia transicional y restaurativa,
+                        incluyendo verdad, reconocimiento de responsabilidad,
+                        sanciones restaurativas y medidas simbólicas.
+                        La indemnización administrativa corresponde a la
+                        Unidad para las Víctimas.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 7. REFLEXIÓN FINAL -->
+<!-- ========================================================= -->
+
+<section id="reflexion" class="py-24 bg-crema">
+
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center mb-14 fade-up">
+
+            <span class="text-xs uppercase tracking-[.3em] text-terracota font-bold">
+                07 · Reflexión final
+            </span>
+
+            <h2 class="font-editorial text-4xl md:text-5xl mt-4">
+                Aprender del conflicto para construir democracia
+            </h2>
+
+        </div>
+
+
+        <article class="space-y-7 text-gray-700 text-lg leading-relaxed fade-up">
+
+            <p>
+                Estudiar el conflicto armado colombiano permite comprender
+                que una democracia no depende únicamente de realizar
+                elecciones. También necesita instituciones capaces de
+                proteger los derechos de las personas, garantizar la
+                participación política y resolver las diferencias sin
+                convertir al adversario en un enemigo. El Bogotazo muestra
+                cómo una sociedad que ya estaba atravesada por fuertes
+                tensiones políticas podía entrar en una espiral de violencia
+                cuando desaparecían los canales de confianza y diálogo.
+            </p>
+
+            <p>
+                Otro aprendizaje importante es que la violencia política
+                tiene consecuencias que van mucho más allá del momento en
+                que ocurre. Una muerte puede afectar a una familia durante
+                generaciones; la destrucción de un territorio puede cambiar
+                la vida económica de una comunidad; y el desplazamiento o
+                la pérdida de confianza pueden modificar las relaciones
+                sociales. Por eso, comprender los conflictos exige mirar
+                tanto los acontecimientos políticos como las experiencias
+                concretas de las víctimas.
+            </p>
+
+            <p>
+                Los procesos actuales de memoria, justicia y reparación
+                muestran que construir paz requiere reconocer los daños
+                causados. La reparación integral combina dimensiones
+                materiales, simbólicas y sociales. La búsqueda de verdad,
+                la dignificación de las víctimas, la restitución de derechos
+                y las garantías de no repetición buscan responder a daños
+                que no pueden solucionarse únicamente mediante una
+                compensación económica.
+            </p>
+
+            <p>
+                Finalmente, conocer la historia puede ayudarnos a valorar
+                la democracia como un proceso que necesita participación,
+                respeto por los derechos humanos y capacidad para tramitar
+                las diferencias. Recordar acontecimientos como el 9 de abril
+                de 1948 no significa quedarse en el pasado, sino utilizar
+                ese conocimiento para identificar los riesgos de la
+                intolerancia política y comprender por qué la verdad, la
+                justicia, la memoria y la participación ciudadana son
+                elementos importantes para construir una paz duradera.
+            </p>
+
+        </article>
+
+
+        <!-- CIERRE -->
+
+        <div class="mt-16 bg-[#1A1A1A] text-white p-8 md:p-12 text-center fade-up">
+
+            <i class="fa-solid fa-book-open text-[#C9A59A] text-3xl"></i>
+
+            <h3 class="font-editorial text-2xl md:text-3xl mt-5">
+                Recordar para comprender. Comprender para no repetir.
+            </h3>
+
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto mt-4">
+                Proyecto académico sobre memoria histórica, conflicto armado,
+                víctimas y construcción de paz en Colombia.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer class="bg-[#111111] text-gray-400 py-10">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row justify-between gap-6">
+
+            <div>
+
+                <h3 class="font-editorial text-white">
+                    VOCES DE LA MEMORIA
+                </h3>
+
+                <p class="text-xs mt-2">
+                    El Bogotazo y el inicio de la violencia política en Colombia.
+                </p>
+
+            </div>
+
+            <div class="text-xs md:text-right">
+
+                <p>
+                    Investigación escolar · 2026
+                </p>
+
+                <p class="mt-1">
+                    Fuentes institucionales: CNMH · JEP · Unidad para las Víctimas
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="border-t border-white/10 mt-7 pt-6 text-xs">
+
+            <p>
+                Las imágenes y documentos externos conservan sus respectivos
+                créditos y condiciones de uso. Verifique las licencias de cada
+                recurso antes de publicar el proyecto fuera del contexto académico.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ========================================================= -->
+<!-- MODAL GALERÍA -->
+<!-- ========================================================= -->
+
+<div
+    id="galleryModal"
+    class="fixed inset-0 z-[100] hidden bg-black/90 p-5 items-center justify-center"
+>
+
+    <div class="max-w-5xl w-full">
+
+        <button
+            onclick="closeGallery()"
+            class="text-white text-2xl mb-4 float-right"
+            aria-label="Cerrar imagen">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <img
+            id="galleryImage"
+            src=""
+            alt="Imagen histórica ampliada"
+            class="w-full max-h-[75vh] object-contain"
+        >
+
+        <p
+            id="galleryCaption"
+            class="text-gray-300 text-sm mt-4 text-center">
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- MODAL DOCUMENTOS -->
+<!-- ========================================================= -->
+
+<div
+    id="documentModal"
+    class="fixed inset-0 z-[100] hidden bg-black/80 p-5 items-center justify-center"
+>
+
+    <div class="bg-crema max-w-2xl w-full p-8 relative">
+
+        <button
+            onclick="closeDocument()"
+            class="absolute top-5 right-5 text-xl text-gray-700"
+            aria-label="Cerrar documento">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <span class="text-xs uppercase tracking-widest text-terracota font-bold">
+            Archivo documental
+        </span>
+
+        <h3 id="documentTitle"
+            class="font-editorial text-3xl mt-3 mb-5">
+            Ficha documental
+        </h3>
+
+        <div class="border-l-4 border-terracota pl-5">
+
+            <p id="documentText"
+               class="text-gray-700 leading-relaxed">
+            </p>
+
+        </div>
+
+        <div class="mt-7 flex flex-wrap gap-3">
+
+            <a
+                href="https://centrodememoriahistorica.gov.co/descargas/informes2013/bastaYa/basta-ya-memorias-guerra-dignidad-12-sept.pdf"
+                target="_blank"
+                class="px-5 py-3 bg-[#1A1A1A] text-white text-xs uppercase tracking-wider">
+
+                <i class="fa-solid fa-file-pdf mr-2"></i>
+                Ver documento institucional
+
+            </a>
+
+            <button
+                onclick="closeDocument()"
+                class="px-5 py-3 border border-black/20 text-xs uppercase tracking-wider">
+
+                Cerrar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script>
+
+    /* ============================
+       MENÚ MÓVIL
+    ============================ */
+
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+
+
+    /* ============================
+       CERRAR MENÚ AL NAVEGAR
+    ============================ */
+
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+
+        link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+        });
+
+    });
+
+
+    /* ============================
+       SCROLL REVEAL
+    ============================ */
+
+    const observer = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+    document.querySelectorAll(".fade-up").forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+    /* ============================
+       ACTORES INTERACTIVOS
+    ============================ */
+
+    function showActor(id) {
+
+        const info = document.getElementById(id);
+
+        if (!info) return;
+
+        const isHidden = info.classList.contains("hidden");
+
+        document.querySelectorAll(".actor-info").forEach(item => {
+
+            item.classList.add("hidden");
+
+        });
+
+        document.querySelectorAll(".actor-card").forEach(card => {
+
+            card.classList.remove("active");
+
+        });
+
+        if (isHidden) {
+
+            info.classList.remove("hidden");
+
+            info.parentElement.classList.add("active");
+
+        }
+
+    }
+
+
+    /* ============================
+       GALERÍA
+    ============================ */
+
+    function openGallery(image, caption) {
+
+        const modal = document.getElementById("galleryModal");
+
+        document.getElementById("galleryImage").src = image;
+
+        document.getElementById("galleryCaption").textContent = caption;
+
+        modal.classList.remove("hidden");
+
+        modal.classList.add("flex");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeGallery() {
+
+        const modal = document.getElementById("galleryModal");
+
+        modal.classList.add("hidden");
+
+        modal.classList.remove("flex");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    /* ============================
+       DOCUMENTOS
+    ============================ */
+
+    function openDocument(type) {
+
+        const modal = document.getElementById("documentModal");
+
+        const title = document.getElementById("documentTitle");
+
+        const text = document.getElementById("documentText");
+
+        if (type === "prensa") {
+
+            title.textContent =
+                "Prensa colombiana y el 9 de abril de 1948";
+
+            text.textContent =
+                "Este bloque está preparado para insertar una digitalización " +
+                "de una primera página periodística de abril de 1948. " +
+                "La comparación entre diferentes periódicos permite analizar " +
+                "cómo se narró el asesinato de Gaitán, los disturbios y la " +
+                "respuesta institucional. Para una versión final del trabajo, " +
+                "se recomienda utilizar una copia digitalizada procedente de " +
+                "una biblioteca, archivo o hemeroteca que indique claramente " +
+                "su procedencia.";
+
+        }
+
+        modal.classList.remove("hidden");
+
+        modal.classList.add("flex");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeDocument() {
+
+        const modal = document.getElementById("documentModal");
+
+        modal.classList.add("hidden");
+
+        modal.classList.remove("flex");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    /* ============================
+       CERRAR MODALES CON ESC
+    ============================ */
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+
+            closeGallery();
+
+            closeDocument();
+
+        }
+
+    });
+
+
+    /* ============================
+       CERRAR MODAL AL HACER CLICK
+       FUERA DEL CONTENIDO
+    ============================ */
+
+    document.getElementById("galleryModal").addEventListener("click", event => {
+
+        if (event.target.id === "galleryModal") {
+
+            closeGallery();
+
+        }
+
+    });
+
+
+    document.getElementById("documentModal").addEventListener("click", event => {
+
+        if (event.target.id === "documentModal") {
+
+            closeDocument();
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
